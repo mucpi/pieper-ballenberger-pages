@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import imgHome1 from "../assets/img_home_1.png.asset.json";
 import imgHome2 from "../assets/img_home_2.jpg.asset.json";
@@ -320,8 +320,46 @@ function Services() {
   );
 }
 
+const referenceCategories = [
+  "Alle",
+  ...Array.from(new Set(references.map((ref) => ref.tags.split("|")[0]!.trim()))),
+];
+
 function References() {
-  const [selected, setSelected] = useState<(typeof references)[number] | null>(null);
+  const [category, setCategory] = useState("Alle");
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
+  const visible =
+    category === "Alle"
+      ? references
+      : references.filter((ref) => ref.tags.split("|")[0]!.trim() === category);
+
+  const selected = selectedIndex === null ? null : visible[selectedIndex];
+
+  const showPrev = useCallback(
+    () => setSelectedIndex((i) => (i === null ? i : (i - 1 + visible.length) % visible.length)),
+    [visible.length],
+  );
+  const showNext = useCallback(
+    () => setSelectedIndex((i) => (i === null ? i : (i + 1) % visible.length)),
+    [visible.length],
+  );
+
+  useEffect(() => {
+    if (selectedIndex === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSelectedIndex(null);
+      if (e.key === "ArrowLeft") showPrev();
+      if (e.key === "ArrowRight") showNext();
+    };
+    window.addEventListener("keydown", onKey);
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [selectedIndex, showPrev, showNext]);
 
   return (
     <section id="referenzen" className="section-padding border-t border-border/50 bg-secondary/30">
@@ -333,13 +371,34 @@ function References() {
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {references.map((ref, index) => (
+        <div className="mt-10 flex flex-wrap justify-center gap-2">
+          {referenceCategories.map((cat) => (
             <button
-              key={`${ref.project}-${index}`}
+              key={cat}
               type="button"
-              onClick={() => setSelected(ref)}
-              className="group overflow-hidden rounded-lg border border-border/50 bg-card text-left transition-shadow hover:shadow-md"
+              onClick={() => {
+                setCategory(cat);
+                setSelectedIndex(null);
+              }}
+              aria-pressed={category === cat}
+              className={`rounded-full border px-4 py-1.5 text-sm transition-colors ${
+                category === cat
+                  ? "border-primary bg-primary text-primary-foreground"
+                  : "border-border bg-background text-muted-foreground hover:border-foreground/30 hover:text-foreground"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {visible.map((ref, index) => (
+            <button
+              key={`${ref.project}-${ref.image}`}
+              type="button"
+              onClick={() => setSelectedIndex(index)}
+              className="group relative overflow-hidden rounded-lg border border-border/50 bg-card text-left transition-shadow hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               <div className="aspect-[4/3] overflow-hidden bg-muted">
                 <img
@@ -349,37 +408,101 @@ function References() {
                   loading="lazy"
                 />
               </div>
+              <div className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-foreground/80 via-foreground/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
+                <span className="p-5 text-sm font-medium text-background">
+                  Projekt ansehen &rarr;
+                </span>
+              </div>
               <div className="p-5">
-                <h3 className="font-heading text-lg text-card-foreground">{ref.project}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">{ref.tags}</p>
+                <p className="text-xs uppercase tracking-wider text-muted-foreground">
+                  {ref.tags.split("|")[1]?.trim()}
+                </p>
+                <h3 className="mt-1 font-heading text-lg text-card-foreground">{ref.project}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  {ref.services} &middot; {ref.completion}
+                </p>
               </div>
             </button>
           ))}
         </div>
       </div>
 
-      {selected && (
+      {selected && selectedIndex !== null && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-background/90 p-4 backdrop-blur-sm"
-          onClick={() => setSelected(null)}
+          onClick={() => setSelectedIndex(null)}
           role="dialog"
           aria-modal="true"
           aria-label={selected.project}
         >
           <div
-            className="max-h-[90vh] w-full max-w-2xl overflow-auto rounded-lg border border-border/50 bg-card p-0 shadow-xl"
+            className="relative max-h-[90vh] w-full max-w-2xl overflow-auto rounded-lg border border-border/50 bg-card shadow-xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="aspect-[4/3] w-full bg-muted">
+            <button
+              type="button"
+              onClick={() => setSelectedIndex(null)}
+              aria-label="Schließen"
+              className="absolute right-3 top-3 z-10 rounded-full bg-background/80 p-2 text-foreground backdrop-blur transition-colors hover:bg-background"
+            >
+              <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.5}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+
+            <div className="relative aspect-[4/3] w-full bg-muted">
               <img
                 src={selected.image}
                 alt={selected.project}
                 className="h-full w-full object-cover"
-                loading="lazy"
               />
+              {visible.length > 1 && (
+                <>
+                  <button
+                    type="button"
+                    onClick={showPrev}
+                    aria-label="Vorheriges Projekt"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-background/80 p-2 text-foreground backdrop-blur transition-colors hover:bg-background"
+                  >
+                    <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={1.5}
+                        d="M15 19l-7-7 7-7"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={showNext}
+                    aria-label="Nächstes Projekt"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-background/80 p-2 text-foreground backdrop-blur transition-colors hover:bg-background"
+                  >
+                    <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={1.5}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </button>
+                </>
+              )}
             </div>
             <div className="p-6 sm:p-8">
-              <h3 className="font-heading text-2xl text-card-foreground">{selected.project}</h3>
+              <p className="text-xs uppercase tracking-wider text-muted-foreground">
+                {selectedIndex + 1} / {visible.length}
+              </p>
+              <h3 className="mt-2 font-heading text-2xl text-card-foreground">
+                {selected.project}
+              </h3>
               <dl className="mt-4 space-y-2 text-muted-foreground">
                 <div className="flex gap-2">
                   <dt className="font-medium text-foreground">Leistungen:</dt>
@@ -394,13 +517,6 @@ function References() {
                   <dd>{selected.tags}</dd>
                 </div>
               </dl>
-              <button
-                type="button"
-                onClick={() => setSelected(null)}
-                className="mt-8 inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
-              >
-                Schließen
-              </button>
             </div>
           </div>
         </div>
