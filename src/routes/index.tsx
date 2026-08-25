@@ -132,6 +132,7 @@ const references: Reference[] = [
       imgRef2c.url,
       imgRef2d.url,
       imgRef2e.url,
+      imgRef2f.url,
     ],
     project: "Neubau eines Einfamilien-Wohnhauses",
     services: "Phase 1–9",
@@ -140,6 +141,7 @@ const references: Reference[] = [
   },
   {
     image: imgRef3.url,
+    gallery: [imgRef3.url, imgRef3a.url, imgRef3b.url, imgRef3c.url, imgRef3d.url],
     project: "Umbau eines Einfamilien-Wohnhauses",
     services: "Phase 1–9",
     completion: "2017",
@@ -147,6 +149,7 @@ const references: Reference[] = [
   },
   {
     image: imgRef4.url,
+    gallery: [imgRef4.url, imgRef4a.url, imgRef4b.url, imgRef4c.url],
     project: "Außenanlage eines Mehrfamilienhauses",
     services: "Phase 1–9",
     completion: "2017",
