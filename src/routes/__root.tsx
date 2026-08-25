@@ -156,7 +156,7 @@ function Header() {
     <header className="sticky top-0 z-50 border-b border-border/50 bg-background/95 backdrop-blur-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link to="/" className="font-heading text-xl tracking-tight text-foreground">
-          Pieper-Ballenberger
+          pieper-ballenberger
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
