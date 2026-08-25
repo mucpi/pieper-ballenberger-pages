@@ -90,9 +90,26 @@ const services = [
   },
 ];
 
-const references = [
+type Reference = {
+  image: string;
+  gallery?: string[];
+  project: string;
+  services: string;
+  completion: string;
+  tags: string;
+};
+
+const references: Reference[] = [
   {
     image: imgRef1.url,
+    gallery: [
+      imgRef1.url,
+      imgRef1a.url,
+      imgRef1b.url,
+      imgRef1c.url,
+      imgRef1d.url,
+      imgRef1e.url,
+    ],
     project: "Neubau eines Einfamilien-Wohnhauses",
     services: "Phase 1–9",
     completion: "2017",
@@ -100,6 +117,14 @@ const references = [
   },
   {
     image: imgRef2.url,
+    gallery: [
+      imgRef2.url,
+      imgRef2a.url,
+      imgRef2b.url,
+      imgRef2c.url,
+      imgRef2d.url,
+      imgRef2e.url,
+    ],
     project: "Neubau eines Einfamilien-Wohnhauses",
     services: "Phase 1–9",
     completion: "2017",
