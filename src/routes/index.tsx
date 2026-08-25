@@ -256,7 +256,7 @@ function Hero() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-base text-muted-foreground sm:text-lg">
           <span>Hamelstraße 16, 61350 Bad Homburg</span>
           <span className="hidden sm:inline">·</span>
           <a href="tel:+496172918007" className="transition-colors hover:text-foreground">
