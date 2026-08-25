@@ -363,6 +363,7 @@ const referenceCategories = [
 function References() {
   const [category, setCategory] = useState("Alle");
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [photoIndex, setPhotoIndex] = useState(0);
 
   const visible =
     category === "Alle"
@@ -370,15 +371,37 @@ function References() {
       : references.filter((ref) => ref.tags.split("|")[0]!.trim() === category);
 
   const selected = selectedIndex === null ? null : visible[selectedIndex];
+  const gallery = selected ? (selected.gallery ?? [selected.image]) : [];
 
-  const showPrev = useCallback(
-    () => setSelectedIndex((i) => (i === null ? i : (i - 1 + visible.length) % visible.length)),
-    [visible.length],
-  );
-  const showNext = useCallback(
-    () => setSelectedIndex((i) => (i === null ? i : (i + 1) % visible.length)),
-    [visible.length],
-  );
+  const openProject = useCallback((index: number) => {
+    setSelectedIndex(index);
+    setPhotoIndex(0);
+  }, []);
+
+  const showPrevProject = useCallback(() => {
+    setSelectedIndex((i) => (i === null ? i : (i - 1 + visible.length) % visible.length));
+    setPhotoIndex(0);
+  }, [visible.length]);
+  const showNextProject = useCallback(() => {
+    setSelectedIndex((i) => (i === null ? i : (i + 1) % visible.length));
+    setPhotoIndex(0);
+  }, [visible.length]);
+
+  const showPrev = useCallback(() => {
+    if (gallery.length > 1) {
+      setPhotoIndex((i) => (i - 1 + gallery.length) % gallery.length);
+    } else {
+      showPrevProject();
+    }
+  }, [gallery.length, showPrevProject]);
+  const showNext = useCallback(() => {
+    if (gallery.length > 1) {
+      setPhotoIndex((i) => (i + 1) % gallery.length);
+    } else {
+      showNextProject();
+    }
+  }, [gallery.length, showNextProject]);
+
 
   useEffect(() => {
     if (selectedIndex === null) return;
