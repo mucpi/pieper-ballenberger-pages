@@ -277,6 +277,99 @@ function Datenschutz() {
             verarbeitet werden.
           </p>
         </section>
+
+        <section>
+          <h2 className="font-heading text-xl text-foreground">Cookies und lokale Speicherung</h2>
+          <p className="mt-3">
+            Diese Website setzt keine Tracking- oder Werbe-Cookies ein. Für den Betrieb der Seite
+            werden ausschließlich technisch notwendige Daten verarbeitet.
+          </p>
+          <p className="mt-3">
+            Wenn Sie im Einwilligungs-Hinweis eine Auswahl treffen, speichern wir diese Entscheidung
+            im lokalen Speicher (Local Storage) Ihres Browsers unter dem Schlüssel
+            <em> pb-consent</em>. Damit wird der Hinweis bei einem erneuten Besuch nicht wiederholt
+            angezeigt. Es handelt sich um eine rein lokale Speicherung ohne Übertragung an uns oder
+            Dritte. Sie können diese Angabe jederzeit über die Einstellungen bzw. den Verlauf Ihres
+            Browsers löschen und Ihre Einwilligung damit widerrufen. Rechtsgrundlage ist § 25 Abs. 2
+            TDDDG (technisch notwendige Speicherung) bzw. Art. 6 Abs. 1 lit. a DSGVO für die
+            gespeicherte Einwilligung.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="font-heading text-xl text-foreground">Google Maps</h2>
+          <p className="mt-3">
+            Auf dieser Website binden wir eine Karte des Dienstes Google Maps ein. Anbieter ist die
+            Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland; eine
+            Datenübermittlung in die USA an die Google LLC kann nicht ausgeschlossen werden.
+          </p>
+          <p className="mt-3">
+            Die Karte wird <strong>nicht automatisch geladen</strong>. Stattdessen sehen Sie
+            zunächst einen Platzhalter. Erst wenn Sie die Karte aktiv laden oder der Einbindung
+            externer Inhalte zustimmen, wird eine Verbindung zu den Servern von Google hergestellt.
+            Dabei können unter anderem Ihre IP-Adresse, Informationen zu Ihrem Browser und
+            Betriebssystem sowie die aufgerufene Seite an Google übertragen und dort gespeichert
+            werden. Auf diese Datenverarbeitung haben wir keinen Einfluss.
+          </p>
+          <p className="mt-3">
+            Rechtsgrundlage der Verarbeitung ist Ihre Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO
+            und § 25 Abs. 1 TDDDG. Die Einwilligung ist freiwillig und kann jederzeit mit Wirkung
+            für die Zukunft widerrufen werden, indem Sie den lokalen Speicher Ihres Browsers für
+            diese Website löschen.
+          </p>
+          <p className="mt-3">
+            Weitere Informationen zum Umgang mit Nutzerdaten finden Sie in der
+            Datenschutzerklärung von Google:{" "}
+            <a
+              href="https://policies.google.com/privacy?hl=de"
+              className="text-foreground hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              policies.google.com/privacy
+            </a>
+          </p>
+        </section>
+
+        <section>
+          <h2 className="font-heading text-xl text-foreground">Hosting</h2>
+          <p className="mt-3">
+            Diese Website wird bei der STRATO AG, Otto-Ostrowski-Straße 7, 10249 Berlin,
+            gehostet. Die Domain ist bei Strato registriert und gelistet. Wenn Sie unsere Website
+            besuchen, verarbeitet Strato als Hosting-Dienstleister in unserem Auftrag
+            verschiedene Daten, darunter IP-Adressen, Zugriffszeitpunkte, übertragene Datenmengen,
+            Browsertyp und Betriebssystem (Server-Logfiles).
+          </p>
+          <p className="mt-3">
+            Die Verarbeitung erfolgt zum Zweck des sicheren, stabilen und effizienten Betriebs
+            unseres Online-Angebots auf Grundlage unseres berechtigten Interesses gemäß Art. 6 Abs.
+            1 lit. f DSGVO. Mit dem Anbieter besteht ein Vertrag über Auftragsverarbeitung gemäß
+            Art. 28 DSGVO.
+          </p>
+          <p className="mt-3">
+            Weitere Informationen:{" "}
+            <a
+              href="https://www.strato.de/datenschutz/"
+              className="text-foreground hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              strato.de/datenschutz
+            </a>
+          </p>
+        </section>
+
+        <section>
+          <h2 className="font-heading text-xl text-foreground">Google Fonts</h2>
+          <p className="mt-3">
+            Für eine einheitliche Darstellung von Schriftarten nutzt diese Seite Schriftarten des
+            Anbieters Google. Beim Aufruf einer Seite lädt Ihr Browser die benötigten Schriftarten
+            von den Servern von Google, wodurch Ihre IP-Adresse an Google übermittelt werden kann.
+            Die Nutzung erfolgt auf Grundlage unseres berechtigten Interesses an einer
+            einheitlichen und ansprechenden Darstellung unseres Online-Angebots gemäß Art. 6 Abs. 1
+            lit. f DSGVO.
+          </p>
+        </section>
       </div>
     </div>
   );

@@ -1,5 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useCallback, useEffect, useState } from "react";
+
+import { useConsent } from "../hooks/useConsent";
 
 import imgHome1 from "../assets/img_home_1.png.asset.json";
 import imgHome2 from "../assets/img_home_2.jpg.asset.json";
