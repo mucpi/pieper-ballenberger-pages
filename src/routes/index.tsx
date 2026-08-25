@@ -15,6 +15,16 @@ import imgRef3 from "../assets/img_referenzen_titel3.jpg.asset.json";
 import imgRef4 from "../assets/img_referenzen_titel4.jpg.asset.json";
 import imgRef5 from "../assets/img_referenzen_titel5.jpg.asset.json";
 import imgRef6 from "../assets/img_referenzen_titel6.jpg.asset.json";
+import imgRef1a from "../assets/img_referenz1_part1.jpg.asset.json";
+import imgRef1b from "../assets/img_referenz1_part2.jpg.asset.json";
+import imgRef1c from "../assets/img_referenz1_part3.jpg.asset.json";
+import imgRef1d from "../assets/img_referenz1_part4.jpg.asset.json";
+import imgRef1e from "../assets/img_referenz1_part5.jpg.asset.json";
+import imgRef2a from "../assets/img_referenz2_part1.jpg.asset.json";
+import imgRef2b from "../assets/img_referenz2_part2.png.asset.json";
+import imgRef2c from "../assets/img_referenz2_part3.jpg.asset.json";
+import imgRef2d from "../assets/img_referenz2_part4.jpg.asset.json";
+import imgRef2e from "../assets/img_referenz2_part5.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -80,9 +90,26 @@ const services = [
   },
 ];
 
-const references = [
+type Reference = {
+  image: string;
+  gallery?: string[];
+  project: string;
+  services: string;
+  completion: string;
+  tags: string;
+};
+
+const references: Reference[] = [
   {
     image: imgRef1.url,
+    gallery: [
+      imgRef1.url,
+      imgRef1a.url,
+      imgRef1b.url,
+      imgRef1c.url,
+      imgRef1d.url,
+      imgRef1e.url,
+    ],
     project: "Neubau eines Einfamilien-Wohnhauses",
     services: "Phase 1–9",
     completion: "2017",
@@ -90,6 +117,14 @@ const references = [
   },
   {
     image: imgRef2.url,
+    gallery: [
+      imgRef2.url,
+      imgRef2a.url,
+      imgRef2b.url,
+      imgRef2c.url,
+      imgRef2d.url,
+      imgRef2e.url,
+    ],
     project: "Neubau eines Einfamilien-Wohnhauses",
     services: "Phase 1–9",
     completion: "2017",
@@ -328,6 +363,7 @@ const referenceCategories = [
 function References() {
   const [category, setCategory] = useState("Alle");
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [photoIndex, setPhotoIndex] = useState(0);
 
   const visible =
     category === "Alle"
@@ -335,15 +371,37 @@ function References() {
       : references.filter((ref) => ref.tags.split("|")[0]!.trim() === category);
 
   const selected = selectedIndex === null ? null : visible[selectedIndex];
+  const gallery = selected ? (selected.gallery ?? [selected.image]) : [];
 
-  const showPrev = useCallback(
-    () => setSelectedIndex((i) => (i === null ? i : (i - 1 + visible.length) % visible.length)),
-    [visible.length],
-  );
-  const showNext = useCallback(
-    () => setSelectedIndex((i) => (i === null ? i : (i + 1) % visible.length)),
-    [visible.length],
-  );
+  const openProject = useCallback((index: number) => {
+    setSelectedIndex(index);
+    setPhotoIndex(0);
+  }, []);
+
+  const showPrevProject = useCallback(() => {
+    setSelectedIndex((i) => (i === null ? i : (i - 1 + visible.length) % visible.length));
+    setPhotoIndex(0);
+  }, [visible.length]);
+  const showNextProject = useCallback(() => {
+    setSelectedIndex((i) => (i === null ? i : (i + 1) % visible.length));
+    setPhotoIndex(0);
+  }, [visible.length]);
+
+  const showPrev = useCallback(() => {
+    if (gallery.length > 1) {
+      setPhotoIndex((i) => (i - 1 + gallery.length) % gallery.length);
+    } else {
+      showPrevProject();
+    }
+  }, [gallery.length, showPrevProject]);
+  const showNext = useCallback(() => {
+    if (gallery.length > 1) {
+      setPhotoIndex((i) => (i + 1) % gallery.length);
+    } else {
+      showNextProject();
+    }
+  }, [gallery.length, showNextProject]);
+
 
   useEffect(() => {
     if (selectedIndex === null) return;
@@ -397,7 +455,7 @@ function References() {
             <button
               key={`${ref.project}-${ref.image}`}
               type="button"
-              onClick={() => setSelectedIndex(index)}
+              onClick={() => openProject(index)}
               className="group relative overflow-hidden rounded-lg border border-border/50 bg-card text-left transition-shadow hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               <div className="aspect-[4/3] overflow-hidden bg-muted">
@@ -408,6 +466,11 @@ function References() {
                   loading="lazy"
                 />
               </div>
+              {(ref.gallery?.length ?? 1) > 1 && (
+                <span className="absolute left-3 top-3 rounded-full bg-background/85 px-2.5 py-1 text-xs text-foreground backdrop-blur">
+                  {ref.gallery!.length} Bilder
+                </span>
+              )}
               <div className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-foreground/80 via-foreground/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
                 <span className="p-5 text-sm font-medium text-background">
                   Projekt ansehen &rarr;
@@ -457,16 +520,16 @@ function References() {
 
             <div className="relative aspect-[4/3] w-full bg-muted">
               <img
-                src={selected.image}
-                alt={selected.project}
-                className="h-full w-full object-cover"
+                src={gallery[photoIndex] ?? selected.image}
+                alt={`${selected.project} – Bild ${photoIndex + 1}`}
+                className="h-full w-full object-contain"
               />
-              {visible.length > 1 && (
+              {(gallery.length > 1 || visible.length > 1) && (
                 <>
                   <button
                     type="button"
                     onClick={showPrev}
-                    aria-label="Vorheriges Projekt"
+                    aria-label={gallery.length > 1 ? "Vorheriges Bild" : "Vorheriges Projekt"}
                     className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-background/80 p-2 text-foreground backdrop-blur transition-colors hover:bg-background"
                   >
                     <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -481,7 +544,7 @@ function References() {
                   <button
                     type="button"
                     onClick={showNext}
-                    aria-label="Nächstes Projekt"
+                    aria-label={gallery.length > 1 ? "Nächstes Bild" : "Nächstes Projekt"}
                     className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-background/80 p-2 text-foreground backdrop-blur transition-colors hover:bg-background"
                   >
                     <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -495,11 +558,57 @@ function References() {
                   </button>
                 </>
               )}
+              {gallery.length > 1 && (
+                <span className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-background/85 px-3 py-1 text-xs text-foreground backdrop-blur">
+                  {photoIndex + 1} / {gallery.length}
+                </span>
+              )}
             </div>
+            {gallery.length > 1 && (
+              <div className="flex gap-2 overflow-x-auto border-b border-border/50 p-3">
+                {gallery.map((src, i) => (
+                  <button
+                    key={src}
+                    type="button"
+                    onClick={() => setPhotoIndex(i)}
+                    aria-label={`Bild ${i + 1} anzeigen`}
+                    aria-current={i === photoIndex}
+                    className={`h-16 w-24 shrink-0 overflow-hidden rounded border transition-opacity ${
+                      i === photoIndex
+                        ? "border-primary opacity-100"
+                        : "border-border opacity-60 hover:opacity-100"
+                    }`}
+                  >
+                    <img src={src} alt="" className="h-full w-full object-cover" loading="lazy" />
+                  </button>
+                ))}
+              </div>
+            )}
             <div className="p-6 sm:p-8">
-              <p className="text-xs uppercase tracking-wider text-muted-foreground">
-                {selectedIndex + 1} / {visible.length}
-              </p>
+              <div className="flex items-center justify-between gap-4">
+                <p className="text-xs uppercase tracking-wider text-muted-foreground">
+                  Projekt {selectedIndex + 1} / {visible.length}
+                </p>
+                {visible.length > 1 && (
+                  <div className="flex gap-2">
+                    <button
+                      type="button"
+                      onClick={showPrevProject}
+                      className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground transition-colors hover:border-foreground/30 hover:text-foreground"
+                    >
+                      &larr; Projekt
+                    </button>
+                    <button
+                      type="button"
+                      onClick={showNextProject}
+                      className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground transition-colors hover:border-foreground/30 hover:text-foreground"
+                    >
+                      Projekt &rarr;
+                    </button>
+                  </div>
+                )}
+              </div>
+
               <h3 className="mt-2 font-heading text-2xl text-card-foreground">
                 {selected.project}
               </h3>
