@@ -455,7 +455,7 @@ function References() {
             <button
               key={`${ref.project}-${ref.image}`}
               type="button"
-              onClick={() => setSelectedIndex(index)}
+              onClick={() => openProject(index)}
               className="group relative overflow-hidden rounded-lg border border-border/50 bg-card text-left transition-shadow hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               <div className="aspect-[4/3] overflow-hidden bg-muted">
@@ -466,6 +466,11 @@ function References() {
                   loading="lazy"
                 />
               </div>
+              {(ref.gallery?.length ?? 1) > 1 && (
+                <span className="absolute left-3 top-3 rounded-full bg-background/85 px-2.5 py-1 text-xs text-foreground backdrop-blur">
+                  {ref.gallery!.length} Bilder
+                </span>
+              )}
               <div className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-foreground/80 via-foreground/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
                 <span className="p-5 text-sm font-medium text-background">
                   Projekt ansehen &rarr;
