@@ -715,18 +715,68 @@ function Contact() {
             </div>
           </div>
 
-          <div className="aspect-square overflow-hidden rounded-lg border border-border/50 bg-muted sm:aspect-[4/3]">
-            <iframe
-              title="Standort Architekturbüro Pieper-Ballenberger"
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d40829.84816870661!2d8.606274592590331!3d50.23841738211134!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x29937e4bca1be930!2sArchitekturb%C3%BCro+Pieper-Ballenberger!5e0!3m2!1sde!2sde!4v1412366269829"
-              className="h-full w-full border-0"
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
+          <MapEmbed />
         </div>
       </div>
     </section>
+  );
+}
+
+function MapEmbed() {
+  const { hydrated, acceptsExternalContent, accept } = useConsent();
+  const [loadedManually, setLoadedManually] = useState(false);
+  const showMap = hydrated && (acceptsExternalContent || loadedManually);
+
+  if (showMap) {
+    return (
+      <div className="aspect-square overflow-hidden rounded-lg border border-border/50 bg-muted sm:aspect-[4/3]">
+        <iframe
+          title="Standort Architekturbüro Pieper-Ballenberger"
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d40829.84816870661!2d8.606274592590331!3d50.23841738211134!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x29937e4bca1be930!2sArchitekturb%C3%BCro+Pieper-Ballenberger!5e0!3m2!1sde!2sde!4v1412366269829"
+          className="h-full w-full border-0"
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex aspect-square flex-col items-center justify-center gap-4 rounded-lg border border-border/50 bg-muted px-6 text-center sm:aspect-[4/3]">
+      <h3 className="font-heading text-lg text-foreground">Google Maps</h3>
+      <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
+        Beim Laden der Karte werden Daten – unter anderem Ihre IP-Adresse – an Google übertragen.
+        Details finden Sie in unserer{" "}
+        <Link to="/datenschutz" className="text-foreground underline underline-offset-2">
+          Datenschutzerklärung
+        </Link>
+        .
+      </p>
+      <div className="flex flex-wrap justify-center gap-3">
+        <button
+          type="button"
+          onClick={() => setLoadedManually(true)}
+          className="rounded-md border border-border px-4 py-2 text-sm text-foreground transition-colors hover:border-foreground/40"
+        >
+          Karte einmalig laden
+        </button>
+        <button
+          type="button"
+          onClick={accept}
+          className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+        >
+          Immer laden
+        </button>
+      </div>
+      <a
+        href="https://www.google.com/maps/search/?api=1&query=Hamelstra%C3%9Fe+16+61350+Bad+Homburg"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-sm text-muted-foreground underline underline-offset-2 hover:text-foreground"
+      >
+        Stattdessen bei Google Maps öffnen
+      </a>
+    </div>
   );
 }
