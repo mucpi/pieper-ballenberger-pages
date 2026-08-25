@@ -10,6 +10,7 @@ import {
 import { useEffect, useState, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import { CookieConsent } from "../components/CookieConsent";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
@@ -143,6 +144,7 @@ function RootComponent() {
         </main>
         <Footer />
       </div>
+      <CookieConsent />
     </QueryClientProvider>
   );
 }
