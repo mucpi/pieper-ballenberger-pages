@@ -100,15 +100,6 @@ function Impressum() {
             </a>
           </p>
           <p className="mt-3">
-            <strong>Berufsrechtliche Regelungen:</strong>{" "}
-            <a
-              href="https://www.akh.de/service/recht/gesetzliche-grundlagen-und-andere-regelungen/"
-              className="text-foreground hover:underline"
-            >
-              Gesetzliche Grundlagen und andere Regelungen der AK Hessen
-            </a>
-          </p>
-          <p className="mt-3">
             Maßgeblich ist insbesondere das Hessische Architekten- und Stadtplanergesetz (HASG):{" "}
             <a
               href="https://www.akh.de/fileadmin/Beratung/Recht/Gesetze/HASG/HASG.pdf?_=1768406716"
