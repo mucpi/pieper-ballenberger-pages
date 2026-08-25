@@ -164,6 +164,7 @@ const references: Reference[] = [
   },
   {
     image: imgRef5.url,
+    gallery: [imgRef5.url, imgRef5a.url, imgRef5b.url, imgRef5c.url, imgRef5d.url],
     project: "Balkonanbau eines Mehrfamilienhauses",
     services: "Phase 1–9",
     completion: "2017",
@@ -171,6 +172,7 @@ const references: Reference[] = [
   },
   {
     image: imgRef6.url,
+    gallery: [imgRef6.url, imgRef6a.url, imgRef6b.url, imgRef6c.url],
     project: "Tiefgaragenplanung eines Einfamilienhauses",
     services: "Phase 1–9",
     completion: "2017",
