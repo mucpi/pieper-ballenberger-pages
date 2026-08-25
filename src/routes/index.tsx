@@ -520,16 +520,16 @@ function References() {
 
             <div className="relative aspect-[4/3] w-full bg-muted">
               <img
-                src={selected.image}
-                alt={selected.project}
-                className="h-full w-full object-cover"
+                src={gallery[photoIndex] ?? selected.image}
+                alt={`${selected.project} – Bild ${photoIndex + 1}`}
+                className="h-full w-full object-contain"
               />
-              {visible.length > 1 && (
+              {(gallery.length > 1 || visible.length > 1) && (
                 <>
                   <button
                     type="button"
                     onClick={showPrev}
-                    aria-label="Vorheriges Projekt"
+                    aria-label={gallery.length > 1 ? "Vorheriges Bild" : "Vorheriges Projekt"}
                     className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-background/80 p-2 text-foreground backdrop-blur transition-colors hover:bg-background"
                   >
                     <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -544,7 +544,7 @@ function References() {
                   <button
                     type="button"
                     onClick={showNext}
-                    aria-label="Nächstes Projekt"
+                    aria-label={gallery.length > 1 ? "Nächstes Bild" : "Nächstes Projekt"}
                     className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-background/80 p-2 text-foreground backdrop-blur transition-colors hover:bg-background"
                   >
                     <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -558,11 +558,57 @@ function References() {
                   </button>
                 </>
               )}
+              {gallery.length > 1 && (
+                <span className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-background/85 px-3 py-1 text-xs text-foreground backdrop-blur">
+                  {photoIndex + 1} / {gallery.length}
+                </span>
+              )}
             </div>
+            {gallery.length > 1 && (
+              <div className="flex gap-2 overflow-x-auto border-b border-border/50 p-3">
+                {gallery.map((src, i) => (
+                  <button
+                    key={src}
+                    type="button"
+                    onClick={() => setPhotoIndex(i)}
+                    aria-label={`Bild ${i + 1} anzeigen`}
+                    aria-current={i === photoIndex}
+                    className={`h-16 w-24 shrink-0 overflow-hidden rounded border transition-opacity ${
+                      i === photoIndex
+                        ? "border-primary opacity-100"
+                        : "border-border opacity-60 hover:opacity-100"
+                    }`}
+                  >
+                    <img src={src} alt="" className="h-full w-full object-cover" loading="lazy" />
+                  </button>
+                ))}
+              </div>
+            )}
             <div className="p-6 sm:p-8">
-              <p className="text-xs uppercase tracking-wider text-muted-foreground">
-                {selectedIndex + 1} / {visible.length}
-              </p>
+              <div className="flex items-center justify-between gap-4">
+                <p className="text-xs uppercase tracking-wider text-muted-foreground">
+                  Projekt {selectedIndex + 1} / {visible.length}
+                </p>
+                {visible.length > 1 && (
+                  <div className="flex gap-2">
+                    <button
+                      type="button"
+                      onClick={showPrevProject}
+                      className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground transition-colors hover:border-foreground/30 hover:text-foreground"
+                    >
+                      &larr; Projekt
+                    </button>
+                    <button
+                      type="button"
+                      onClick={showNextProject}
+                      className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground transition-colors hover:border-foreground/30 hover:text-foreground"
+                    >
+                      Projekt &rarr;
+                    </button>
+                  </div>
+                )}
+              </div>
+
               <h3 className="mt-2 font-heading text-2xl text-card-foreground">
                 {selected.project}
               </h3>
