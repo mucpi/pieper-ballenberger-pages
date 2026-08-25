@@ -334,9 +334,9 @@ function References() {
         </div>
 
         <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {references.map((ref) => (
+          {references.map((ref, index) => (
             <button
-              key={ref.project}
+              key={`${ref.project}-${index}`}
               type="button"
               onClick={() => setSelected(ref)}
               className="group overflow-hidden rounded-lg border border-border/50 bg-card text-left transition-shadow hover:shadow-md"
