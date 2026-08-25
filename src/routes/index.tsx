@@ -25,6 +25,14 @@ import imgRef2b from "../assets/img_referenz2_part2.png.asset.json";
 import imgRef2c from "../assets/img_referenz2_part3.jpg.asset.json";
 import imgRef2d from "../assets/img_referenz2_part4.jpg.asset.json";
 import imgRef2e from "../assets/img_referenz2_part5.jpg.asset.json";
+import imgRef2f from "../assets/img_referenz2_part6.jpg.asset.json";
+import imgRef3a from "../assets/img_referenz3_part1.jpg.asset.json";
+import imgRef3b from "../assets/img_referenz3_part2.jpg.asset.json";
+import imgRef3c from "../assets/img_referenz3_part3.jpg.asset.json";
+import imgRef3d from "../assets/img_referenz3_part4.jpg.asset.json";
+import imgRef4a from "../assets/img_referenz4_part1.jpg.asset.json";
+import imgRef4b from "../assets/img_referenz4_part2.jpg.asset.json";
+import imgRef4c from "../assets/img_referenz4_part3.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -124,6 +132,7 @@ const references: Reference[] = [
       imgRef2c.url,
       imgRef2d.url,
       imgRef2e.url,
+      imgRef2f.url,
     ],
     project: "Neubau eines Einfamilien-Wohnhauses",
     services: "Phase 1–9",
@@ -132,6 +141,7 @@ const references: Reference[] = [
   },
   {
     image: imgRef3.url,
+    gallery: [imgRef3.url, imgRef3a.url, imgRef3b.url, imgRef3c.url, imgRef3d.url],
     project: "Umbau eines Einfamilien-Wohnhauses",
     services: "Phase 1–9",
     completion: "2017",
@@ -139,6 +149,7 @@ const references: Reference[] = [
   },
   {
     image: imgRef4.url,
+    gallery: [imgRef4.url, imgRef4a.url, imgRef4b.url, imgRef4c.url],
     project: "Außenanlage eines Mehrfamilienhauses",
     services: "Phase 1–9",
     completion: "2017",
