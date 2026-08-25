@@ -25,6 +25,14 @@ import imgRef2b from "../assets/img_referenz2_part2.png.asset.json";
 import imgRef2c from "../assets/img_referenz2_part3.jpg.asset.json";
 import imgRef2d from "../assets/img_referenz2_part4.jpg.asset.json";
 import imgRef2e from "../assets/img_referenz2_part5.jpg.asset.json";
+import imgRef2f from "../assets/img_referenz2_part6.jpg.asset.json";
+import imgRef3a from "../assets/img_referenz3_part1.jpg.asset.json";
+import imgRef3b from "../assets/img_referenz3_part2.jpg.asset.json";
+import imgRef3c from "../assets/img_referenz3_part3.jpg.asset.json";
+import imgRef3d from "../assets/img_referenz3_part4.jpg.asset.json";
+import imgRef4a from "../assets/img_referenz4_part1.jpg.asset.json";
+import imgRef4b from "../assets/img_referenz4_part2.jpg.asset.json";
+import imgRef4c from "../assets/img_referenz4_part3.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
