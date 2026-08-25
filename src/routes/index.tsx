@@ -15,6 +15,16 @@ import imgRef3 from "../assets/img_referenzen_titel3.jpg.asset.json";
 import imgRef4 from "../assets/img_referenzen_titel4.jpg.asset.json";
 import imgRef5 from "../assets/img_referenzen_titel5.jpg.asset.json";
 import imgRef6 from "../assets/img_referenzen_titel6.jpg.asset.json";
+import imgRef1a from "../assets/img_referenz1_part1.jpg.asset.json";
+import imgRef1b from "../assets/img_referenz1_part2.jpg.asset.json";
+import imgRef1c from "../assets/img_referenz1_part3.jpg.asset.json";
+import imgRef1d from "../assets/img_referenz1_part4.jpg.asset.json";
+import imgRef1e from "../assets/img_referenz1_part5.jpg.asset.json";
+import imgRef2a from "../assets/img_referenz2_part1.jpg.asset.json";
+import imgRef2b from "../assets/img_referenz2_part2.png.asset.json";
+import imgRef2c from "../assets/img_referenz2_part3.jpg.asset.json";
+import imgRef2d from "../assets/img_referenz2_part4.jpg.asset.json";
+import imgRef2e from "../assets/img_referenz2_part5.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
