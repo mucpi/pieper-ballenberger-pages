@@ -162,19 +162,19 @@ function Header() {
         <nav className="hidden items-center gap-8 md:flex">
           <a
             href="#leistungen"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            className="text-sm font-thin text-muted-foreground transition-colors hover:text-foreground"
           >
             Leistungen
           </a>
           <a
             href="#referenzen"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            className="text-sm font-thin text-muted-foreground transition-colors hover:text-foreground"
           >
             Referenzen
           </a>
           <a
             href="#kontakt"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            className="text-sm font-thin text-muted-foreground transition-colors hover:text-foreground"
           >
             Kontakt
           </a>
@@ -218,21 +218,21 @@ function Header() {
           <nav className="flex flex-col gap-4 pt-4">
             <a
               href="#leistungen"
-              className="text-base font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className="text-base font-thin text-muted-foreground transition-colors hover:text-foreground"
               onClick={() => setMobileOpen(false)}
             >
               Leistungen
             </a>
             <a
               href="#referenzen"
-              className="text-base font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className="text-base font-thin text-muted-foreground transition-colors hover:text-foreground"
               onClick={() => setMobileOpen(false)}
             >
               Referenzen
             </a>
             <a
               href="#kontakt"
-              className="text-base font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className="text-base font-thin text-muted-foreground transition-colors hover:text-foreground"
               onClick={() => setMobileOpen(false)}
             >
               Kontakt
