@@ -63,7 +63,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
           </button>
           <a
             href="/"
-            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-[#1B68] transition-colors hover:bg-accent"
+            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-[#383e42] transition-colors hover:bg-accent"
           >
             Zur Startseite
           </a>
@@ -155,26 +155,26 @@ function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/50 bg-background/95 backdrop-blur-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <Link to="/" className="font-heading text-xl tracking-tight text-[#1B68]">
+        <Link to="/" className="font-heading text-xl tracking-tight text-[#383e42]">
           pieper-ballenberger
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
           <a
             href="#leistungen"
-            className="font-heading text-sm text-[#1B68] transition-colors hover:text-foreground"
+            className="font-heading text-sm text-[#383e42] transition-colors hover:text-foreground"
           >
             Leistungen
           </a>
           <a
             href="#referenzen"
-            className="font-heading text-sm text-[#1B68] transition-colors hover:text-foreground"
+            className="font-heading text-sm text-[#383e42] transition-colors hover:text-foreground"
           >
             Referenzen
           </a>
           <a
             href="#kontakt"
-            className="font-heading text-sm text-[#1B68] transition-colors hover:text-foreground"
+            className="font-heading text-sm text-[#383e42] transition-colors hover:text-foreground"
           >
             Kontakt
           </a>
@@ -218,21 +218,21 @@ function Header() {
           <nav className="flex flex-col gap-4 pt-4">
             <a
               href="#leistungen"
-              className="font-heading text-base text-[#1B68] transition-colors hover:text-foreground"
+              className="font-heading text-base text-[#383e42] transition-colors hover:text-foreground"
               onClick={() => setMobileOpen(false)}
             >
               Leistungen
             </a>
             <a
               href="#referenzen"
-              className="font-heading text-base text-[#1B68] transition-colors hover:text-foreground"
+              className="font-heading text-base text-[#383e42] transition-colors hover:text-foreground"
               onClick={() => setMobileOpen(false)}
             >
               Referenzen
             </a>
             <a
               href="#kontakt"
-              className="font-heading text-base text-[#1B68] transition-colors hover:text-foreground"
+              className="font-heading text-base text-[#383e42] transition-colors hover:text-foreground"
               onClick={() => setMobileOpen(false)}
             >
               Kontakt
@@ -250,10 +250,10 @@ function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 text-sm text-muted-foreground sm:flex-row sm:px-6 lg:px-8">
         <p>&copy; {new Date().getFullYear()} Architekturbüro Pieper-Ballenberger</p>
         <div className="flex gap-6">
-          <Link to="/impressum" className="text-[#1B68] transition-colors hover:text-foreground">
+          <Link to="/impressum" className="text-[#383e42] transition-colors hover:text-foreground">
             Impressum
           </Link>
-          <Link to="/datenschutz" className="text-[#1B68] transition-colors hover:text-foreground">
+          <Link to="/datenschutz" className="text-[#383e42] transition-colors hover:text-foreground">
             Datenschutzerklärung
           </Link>
         </div>
