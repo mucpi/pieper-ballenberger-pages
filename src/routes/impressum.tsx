@@ -30,7 +30,7 @@ function Impressum() {
     <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
       <Link
         to="/"
-        className="text-sm font-medium text-foreground transition-colors hover:text-foreground"
+        className="text-sm font-medium text-[#1B68] transition-colors hover:text-foreground"
       >
         ← Zurück zur Startseite
       </Link>
@@ -61,7 +61,7 @@ function Impressum() {
             Website:{" "}
             <a
               href="https://www.pieperballenberger.de"
-              className="text-foreground hover:underline"
+              className="text-[#1B68] hover:underline"
             >
               www.pieperballenberger.de
             </a>
@@ -103,7 +103,7 @@ function Impressum() {
             Maßgeblich ist insbesondere das Hessische Architekten- und Stadtplanergesetz (HASG):{" "}
             <a
               href="https://www.akh.de/fileadmin/Beratung/Recht/Gesetze/HASG/HASG.pdf?_=1768406716"
-              className="text-foreground hover:underline"
+              className="text-[#1B68] hover:underline"
               target="_blank"
               rel="noopener noreferrer"
             >

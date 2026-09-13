@@ -265,7 +265,7 @@ function Hero() {
           <span className="hidden sm:inline">·</span>
           <a
             href="mailto:info@pieperballenberger.de"
-            className="text-foreground transition-colors hover:text-foreground"
+            className="text-[#1B68] transition-colors hover:text-foreground"
           >
             info@pieperballenberger.de
           </a>
@@ -690,7 +690,7 @@ function Contact() {
                   E-Mail:{" "}
                   <a
                     href="mailto:info@pieperballenberger.de"
-                    className="text-foreground hover:underline"
+                    className="text-[#1B68] hover:underline"
                   >
                     info@pieperballenberger.de
                   </a>
@@ -709,7 +709,7 @@ function Contact() {
                 Website:{" "}
                 <a
                   href="https://www.pieperballenberger.de"
-                  className="text-foreground hover:underline"
+                  className="text-[#1B68] hover:underline"
                 >
                   www.pieperballenberger.de
                 </a>
@@ -775,7 +775,7 @@ function MapEmbed() {
         href="https://www.google.com/maps/search/?api=1&query=Hamelstra%C3%9Fe+16+61350+Bad+Homburg"
         target="_blank"
         rel="noopener noreferrer"
-        className="text-sm text-foreground underline underline-offset-2 hover:text-foreground"
+        className="text-sm text-[#1B68] underline underline-offset-2 hover:text-foreground"
       >
         Stattdessen bei Google Maps öffnen
       </a>

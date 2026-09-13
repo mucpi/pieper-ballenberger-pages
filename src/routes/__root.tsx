@@ -63,7 +63,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
           </button>
           <a
             href="/"
-            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-[#1B68] transition-colors hover:bg-accent"
           >
             Zur Startseite
           </a>
@@ -162,19 +162,19 @@ function Header() {
         <nav className="hidden items-center gap-8 md:flex">
           <a
             href="#leistungen"
-            className="font-heading text-sm text-foreground transition-colors hover:text-foreground"
+            className="font-heading text-sm text-[#1B68] transition-colors hover:text-foreground"
           >
             Leistungen
           </a>
           <a
             href="#referenzen"
-            className="font-heading text-sm text-foreground transition-colors hover:text-foreground"
+            className="font-heading text-sm text-[#1B68] transition-colors hover:text-foreground"
           >
             Referenzen
           </a>
           <a
             href="#kontakt"
-            className="font-heading text-sm text-foreground transition-colors hover:text-foreground"
+            className="font-heading text-sm text-[#1B68] transition-colors hover:text-foreground"
           >
             Kontakt
           </a>
@@ -218,21 +218,21 @@ function Header() {
           <nav className="flex flex-col gap-4 pt-4">
             <a
               href="#leistungen"
-              className="font-heading text-base text-foreground transition-colors hover:text-foreground"
+              className="font-heading text-base text-[#1B68] transition-colors hover:text-foreground"
               onClick={() => setMobileOpen(false)}
             >
               Leistungen
             </a>
             <a
               href="#referenzen"
-              className="font-heading text-base text-foreground transition-colors hover:text-foreground"
+              className="font-heading text-base text-[#1B68] transition-colors hover:text-foreground"
               onClick={() => setMobileOpen(false)}
             >
               Referenzen
             </a>
             <a
               href="#kontakt"
-              className="font-heading text-base text-foreground transition-colors hover:text-foreground"
+              className="font-heading text-base text-[#1B68] transition-colors hover:text-foreground"
               onClick={() => setMobileOpen(false)}
             >
               Kontakt
