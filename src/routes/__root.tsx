@@ -155,7 +155,7 @@ function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/50 bg-background/95 backdrop-blur-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <Link to="/" className="font-heading text-xl tracking-tight text-foreground">
+        <Link to="/" className="font-heading text-xl tracking-tight text-[#1B68]">
           pieper-ballenberger
         </Link>
 
@@ -250,10 +250,10 @@ function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 text-sm text-muted-foreground sm:flex-row sm:px-6 lg:px-8">
         <p>&copy; {new Date().getFullYear()} Architekturbüro Pieper-Ballenberger</p>
         <div className="flex gap-6">
-          <Link to="/impressum" className="text-foreground transition-colors hover:text-foreground">
+          <Link to="/impressum" className="text-[#1B68] transition-colors hover:text-foreground">
             Impressum
           </Link>
-          <Link to="/datenschutz" className="text-foreground transition-colors hover:text-foreground">
+          <Link to="/datenschutz" className="text-[#1B68] transition-colors hover:text-foreground">
             Datenschutzerklärung
           </Link>
         </div>

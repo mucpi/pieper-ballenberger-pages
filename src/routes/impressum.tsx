@@ -54,7 +54,7 @@ function Impressum() {
             Fax: 06172 / 918006
             <br />
             E-Mail:{" "}
-            <a href="mailto:info@pieperballenberger.de" className="text-foreground hover:underline">
+            <a href="mailto:info@pieperballenberger.de" className="text-[#1B68] hover:underline">
               info@pieperballenberger.de
             </a>
             <br />
@@ -95,7 +95,7 @@ function Impressum() {
           </p>
           <p className="mt-3">
             <strong>Zuständige Kammer:</strong>{" "}
-            <a href="https://www.akh.de/" className="text-foreground hover:underline">
+            <a href="https://www.akh.de/" className="text-[#1B68] hover:underline">
               Architekten- und Stadtplanerkammer Hessen
             </a>
           </p>
@@ -193,7 +193,7 @@ function Impressum() {
           </p>
           <p className="mt-3">
             Quelle:{" "}
-            <a href="https://www.e-recht24.de" className="text-foreground hover:underline">
+            <a href="https://www.e-recht24.de" className="text-[#1B68] hover:underline">
               e-recht24.de
             </a>
           </p>

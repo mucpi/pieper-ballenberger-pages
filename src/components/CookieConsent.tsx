@@ -19,7 +19,7 @@ export function CookieConsent() {
           Diese Website verwendet ausschließlich technisch notwendige Speicherung. Externe Inhalte
           wie die Google-Maps-Karte werden erst nach Ihrer Einwilligung geladen. Weitere
           Informationen finden Sie in unserer{" "}
-          <Link to="/datenschutz" className="text-foreground underline underline-offset-2">
+          <Link to="/datenschutz" className="text-[#1B68] underline underline-offset-2">
             Datenschutzerklärung
           </Link>
           .

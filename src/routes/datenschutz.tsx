@@ -146,7 +146,7 @@ function Datenschutz() {
             Telefon: 06172 / 918007
             <br />
             E-Mail:{" "}
-            <a href="mailto:info@pieperballenberger.de" className="text-foreground hover:underline">
+            <a href="mailto:info@pieperballenberger.de" className="text-[#1B68] hover:underline">
               info@pieperballenberger.de
             </a>
           </p>
