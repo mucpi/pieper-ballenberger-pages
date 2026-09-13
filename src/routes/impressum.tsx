@@ -30,7 +30,7 @@ function Impressum() {
     <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
       <Link
         to="/"
-        className="text-sm font-medium text-primary transition-colors hover:text-foreground"
+        className="text-sm font-medium text-foreground transition-colors hover:text-foreground"
       >
         ← Zurück zur Startseite
       </Link>
@@ -54,14 +54,14 @@ function Impressum() {
             Fax: 06172 / 918006
             <br />
             E-Mail:{" "}
-            <a href="mailto:info@pieperballenberger.de" className="text-primary hover:underline">
+            <a href="mailto:info@pieperballenberger.de" className="text-foreground hover:underline">
               info@pieperballenberger.de
             </a>
             <br />
             Website:{" "}
             <a
               href="https://www.pieperballenberger.de"
-              className="text-primary hover:underline"
+              className="text-foreground hover:underline"
             >
               www.pieperballenberger.de
             </a>
@@ -95,7 +95,7 @@ function Impressum() {
           </p>
           <p className="mt-3">
             <strong>Zuständige Kammer:</strong>{" "}
-            <a href="https://www.akh.de/" className="text-primary hover:underline">
+            <a href="https://www.akh.de/" className="text-foreground hover:underline">
               Architekten- und Stadtplanerkammer Hessen
             </a>
           </p>
@@ -103,7 +103,7 @@ function Impressum() {
             Maßgeblich ist insbesondere das Hessische Architekten- und Stadtplanergesetz (HASG):{" "}
             <a
               href="https://www.akh.de/fileadmin/Beratung/Recht/Gesetze/HASG/HASG.pdf?_=1768406716"
-              className="text-primary hover:underline"
+              className="text-foreground hover:underline"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -193,7 +193,7 @@ function Impressum() {
           </p>
           <p className="mt-3">
             Quelle:{" "}
-            <a href="https://www.e-recht24.de" className="text-primary hover:underline">
+            <a href="https://www.e-recht24.de" className="text-foreground hover:underline">
               e-recht24.de
             </a>
           </p>
