@@ -30,7 +30,7 @@ function Datenschutz() {
     <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
       <Link
         to="/"
-        className="text-sm font-medium text-primary transition-colors hover:text-foreground"
+        className="text-sm font-medium text-foreground transition-colors hover:text-foreground"
       >
         ← Zurück zur Startseite
       </Link>
@@ -146,7 +146,7 @@ function Datenschutz() {
             Telefon: 06172 / 918007
             <br />
             E-Mail:{" "}
-            <a href="mailto:info@pieperballenberger.de" className="text-primary hover:underline">
+            <a href="mailto:info@pieperballenberger.de" className="text-foreground hover:underline">
               info@pieperballenberger.de
             </a>
           </p>
@@ -322,7 +322,7 @@ function Datenschutz() {
             Datenschutzerklärung von Google:{" "}
             <a
               href="https://policies.google.com/privacy?hl=de"
-              className="text-primary hover:underline"
+              className="text-foreground hover:underline"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -350,7 +350,7 @@ function Datenschutz() {
             Weitere Informationen:{" "}
             <a
               href="https://www.strato.de/datenschutz/"
-              className="text-primary hover:underline"
+              className="text-foreground hover:underline"
               target="_blank"
               rel="noopener noreferrer"
             >
