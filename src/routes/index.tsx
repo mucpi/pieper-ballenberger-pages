@@ -259,13 +259,13 @@ function Hero() {
         <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-base text-muted-foreground sm:text-lg">
           <span>Hamelstraße 16, 61350 Bad Homburg</span>
           <span className="hidden sm:inline">·</span>
-          <a href="tel:+496172918007" className="text-foreground transition-colors hover:text-foreground">
+          <a href="tel:+496172918007" className="text-[#1B68] transition-colors hover:text-foreground">
             06172 918007
           </a>
           <span className="hidden sm:inline">·</span>
           <a
             href="mailto:info@pieperballenberger.de"
-            className="text-foreground transition-colors hover:text-foreground"
+            className="text-[#1B68] transition-colors hover:text-foreground"
           >
             info@pieperballenberger.de
           </a>
@@ -678,7 +678,7 @@ function Contact() {
               <div className="mt-4 space-y-1 text-muted-foreground">
                 <p>
                   Telefon:{" "}
-                  <a href="tel:+496172918007" className="text-foreground hover:underline">
+                  <a href="tel:+496172918007" className="text-[#1B68] hover:underline">
                     06172 / 918007
                   </a>
                 </p>
@@ -690,7 +690,7 @@ function Contact() {
                   E-Mail:{" "}
                   <a
                     href="mailto:info@pieperballenberger.de"
-                    className="text-foreground hover:underline"
+                    className="text-[#1B68] hover:underline"
                   >
                     info@pieperballenberger.de
                   </a>
@@ -709,7 +709,7 @@ function Contact() {
                 Website:{" "}
                 <a
                   href="https://www.pieperballenberger.de"
-                  className="text-foreground hover:underline"
+                  className="text-[#1B68] hover:underline"
                 >
                   www.pieperballenberger.de
                 </a>
@@ -750,7 +750,7 @@ function MapEmbed() {
       <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
         Beim Laden der Karte werden Daten – unter anderem Ihre IP-Adresse – an Google übertragen.
         Details finden Sie in unserer{" "}
-        <Link to="/datenschutz" className="text-foreground underline underline-offset-2">
+        <Link to="/datenschutz" className="text-[#1B68] underline underline-offset-2">
           Datenschutzerklärung
         </Link>
         .
@@ -775,7 +775,7 @@ function MapEmbed() {
         href="https://www.google.com/maps/search/?api=1&query=Hamelstra%C3%9Fe+16+61350+Bad+Homburg"
         target="_blank"
         rel="noopener noreferrer"
-        className="text-sm text-foreground underline underline-offset-2 hover:text-foreground"
+        className="text-sm text-[#1B68] underline underline-offset-2 hover:text-foreground"
       >
         Stattdessen bei Google Maps öffnen
       </a>
