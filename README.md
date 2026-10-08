@@ -27,3 +27,45 @@ npm run dev
 - TypeScript
 - React
 - Tailwind CSS
+
+## Self-hosting (Raspberry Pi 5, Docker + Nginx)
+
+Every page (`/`, `/impressum`, `/datenschutz`) is prerendered to plain HTML at
+build time. The output in `dist/client/` is a fully static site — no Node.js,
+Nitro or SSR server is needed at runtime. (`dist/server/` is only used by
+Lovable's own hosting and can be ignored.)
+
+### Build & run with Docker (on the Pi)
+
+```sh
+git clone <this-repository-url> && cd <repository-name>
+docker build -t pieper-ballenberger .
+docker run -d --name pieper-ballenberger --restart unless-stopped -p 80:80 pieper-ballenberger
+```
+
+The images (`oven/bun`, `nginx:alpine`) are multi-arch, so this builds
+natively on the Pi's ARM64 CPU. Open `http://<pi-ip>/`.
+
+To update: `git pull && docker build -t pieper-ballenberger . && docker rm -f pieper-ballenberger` and run again.
+
+### Build without Docker
+
+```sh
+bun install
+bun run build
+# copy dist/client/* and self-host-assets/* into your web root
+```
+
+### Images
+
+Images uploaded in Lovable are referenced as `/__l5e/assets-v1/...` and are
+normally served by Lovable's hosting. Local copies live in `self-host-assets/`
+and are copied into the web root by the Dockerfile. After adding or replacing
+images in Lovable, run `./scripts/fetch-assets.sh` and commit the result.
+
+### What is not static
+
+- No server functions, forms or database are used, so nothing is lost.
+- Google Maps (after cookie consent) and Google Fonts load from Google directly.
+- HTTPS: put the container behind a reverse proxy (e.g. Caddy, Nginx Proxy
+  Manager or Traefik with Let's Encrypt) or a Cloudflare Tunnel.
