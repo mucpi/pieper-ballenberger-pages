@@ -1,0 +1,9 @@
+node_modules
+dist
+.output
+.git
+.lovable
+.vscode
+*.log
+Dockerfile
+.dockerignore
