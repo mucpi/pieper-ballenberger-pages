@@ -9,6 +9,9 @@ export const getRouter = () => {
     routeTree,
     context: { queryClient },
     scrollRestoration: true,
+    // Static hosting serves /page/index.html; keep URLs as requested so the
+    // build-time prerenderer (which requests /page/) is not redirected.
+    trailingSlash: "preserve",
     defaultPreloadStaleTime: 0,
   });
 
