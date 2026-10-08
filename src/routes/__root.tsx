@@ -162,19 +162,19 @@ function Header() {
 
         <nav className="hidden items-center gap-8 md:flex">
           <a
-            href="#leistungen"
+            href="/#leistungen"
             className="font-heading text-sm text-[#383e42] transition-colors hover:text-foreground"
           >
             Leistungen
           </a>
           <a
-            href="#referenzen"
+            href="/#referenzen"
             className="font-heading text-sm text-[#383e42] transition-colors hover:text-foreground"
           >
             Referenzen
           </a>
           <a
-            href="#kontakt"
+            href="/#kontakt"
             className="font-heading text-sm text-[#383e42] transition-colors hover:text-foreground"
           >
             Kontakt
@@ -218,21 +218,21 @@ function Header() {
         <div className="border-t border-border/50 px-4 pb-4 md:hidden">
           <nav className="flex flex-col gap-4 pt-4">
             <a
-              href="#leistungen"
+              href="/#leistungen"
               className="font-heading text-base text-[#383e42] transition-colors hover:text-foreground"
               onClick={() => setMobileOpen(false)}
             >
               Leistungen
             </a>
             <a
-              href="#referenzen"
+              href="/#referenzen"
               className="font-heading text-base text-[#383e42] transition-colors hover:text-foreground"
               onClick={() => setMobileOpen(false)}
             >
               Referenzen
             </a>
             <a
-              href="#kontakt"
+              href="/#kontakt"
               className="font-heading text-base text-[#383e42] transition-colors hover:text-foreground"
               onClick={() => setMobileOpen(false)}
             >
