@@ -11,7 +11,7 @@ export default defineConfig({
     server: { entry: "server" },
     // Every page is rendered to static HTML at build time so the site can be
     // served by any static web server (e.g. Nginx) without a Node runtime.
-    pages: [{ path: "/" }, { path: "/impressum" }, { path: "/datenschutz" }],
+    pages: [{ path: "/" }, { path: "/impressum/" }, { path: "/datenschutz/" }],
     prerender: { enabled: true, autoStaticPathsDiscovery: false },
   },
 });
